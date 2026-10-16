@@ -1,0 +1,9 @@
+package com.klef.soa.exam.service;
+
+import com.klef.soa.exam.entity.Curd;
+
+public interface CurdService {
+	Curd addCurd(Curd curd);
+	List<Curd>displayall();
+	
+}

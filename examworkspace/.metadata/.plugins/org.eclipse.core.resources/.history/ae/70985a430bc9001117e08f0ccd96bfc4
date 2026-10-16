@@ -1,0 +1,55 @@
+package com.klef.soa.exam.controller;
+
+import java.util.List;
+
+import org.apache.hc.core5.http.HttpStatus;
+import org.apache.hc.core5.http.Message;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.klef.soa.exam.entity.Curd;
+import com.klef.soa.exam.service.CurdService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+@RestController
+@RequestMapping("/curd")
+public class CurdController 
+{
+	@Autowired 
+	public CurdService controller;
+	
+	@GetMapping("/")
+	public String home() {
+		return "Curd service is running";
+	}
+	
+	@PostMapping("/Add")
+	public ResponseEntity<String> add(@RequestBody Curd curd) {
+		controller.addCurd(curd);
+		return ResponseEntity.status(201).body("added successfully");
+	}
+	
+	@GetMapping("/DisplayAll")
+	public ResponseEntity<?> displayAll() {
+		List<Curd> list = controller.displayall();
+		if(list.size()>0) {
+			ResponseEntity.ok(list);
+		}else {
+			return ResponseEntity.status(404).body("No data is present");
+		}
+	}
+	
+	@DeleteMapping("/Delete/{id}")
+	public ResponseEntity<String> deleteById(@PathVariable Long id) {
+		controller.deleteByid(id);
+		return ResponseEntity.status(201).body("deleted successfully");
+		
+	}
+}

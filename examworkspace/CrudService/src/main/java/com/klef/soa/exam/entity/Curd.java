@@ -1,0 +1,71 @@
+package com.klef.soa.exam.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="Curd")
+public class Curd {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public long id;
+	
+	public String tankCode;
+	
+	public int capacityLiters;
+	
+	public String material;
+	
+	public String installedDate;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTankCode() {
+		return tankCode;
+	}
+
+	public void setTankCode(String tankCode) {
+		this.tankCode = tankCode;
+	}
+
+	public int getCapacityLiters() {
+		return capacityLiters;
+	}
+
+	public void setCapacityLiters(int capacityLiters) {
+		this.capacityLiters = capacityLiters;
+	}
+
+	public String getMaterial() {
+		return material;
+	}
+
+	public void setMaterial(String material) {
+		this.material = material;
+	}
+
+	public String getInstalledDate() {
+		return installedDate;
+	}
+
+	public void setInstalledDate(String installedDate) {
+		this.installedDate = installedDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Curd [id=" + id + ", tankCode=" + tankCode + ", capacityLiters=" + capacityLiters + ", material="
+				+ material + ", installedDate=" + installedDate + "]";
+	}
+
+}

@@ -1,0 +1,33 @@
+package com.klef.soa.exam.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.klef.soa.exam.entity.Curd;
+
+@Service
+public class CurdServiceImpl implements CurdService {
+
+	@Autowired
+	public CurdService service;
+	
+	@Override
+	public Curd addCurd(Curd curd) {
+		return service.addCurd(curd);
+	}
+
+	@Override
+	public List<Curd> displayall() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteByid(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

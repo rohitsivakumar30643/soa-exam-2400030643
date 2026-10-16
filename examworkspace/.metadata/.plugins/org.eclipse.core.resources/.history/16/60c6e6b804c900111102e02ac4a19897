@@ -1,0 +1,6 @@
+spring.application.name=CrudService
+server.port=8081
+
+spring.datasource.url=
+spring.datasource.password=16122006
+spring.datasource.username=root
